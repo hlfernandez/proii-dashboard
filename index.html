@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROII · dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="prompt">
+    <span class="user">hlfernandez@esei</span><span class="dim">:</span><span class="path">~/gria/proii</span><span class="dim">$</span> <span class="cursor"></span>
+  </header>
+
+  <section>
+    <p class="cmd"><span class="dim">$</span> proii stats --global<span id="fields-arg"></span></p>
+    <div class="box" id="global">
+      <h2>Resultados por curso</h2>
+      <div class="filters" id="filters"><span class="dim">--fields</span></div>
+      <div id="global-charts"></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="cmd"><span class="dim">$</span> proii boxplot --conv <span id="box-arg">1</span></p>
+    <div class="box">
+      <h2>Comparativa por curso</h2>
+      <div class="selector">
+        <label class="dim">--conv <select id="box-conv">
+          <option value="1">1ª conv.</option>
+          <option value="2">2ª conv.</option>
+          <option value="1,2">1ª + 2ª</option>
+        </select></label>
+      </div>
+      <div id="boxplot"></div>
+      <p class="dim" id="box-note"></p>
+    </div>
+  </section>
+
+  <section>
+    <p class="cmd"><span class="dim">$</span> proii violin --year <span id="year-arg">""</span></p>
+    <div class="box">
+      <h2>Distribución de notas</h2>
+      <div class="selector">
+        <span class="dim">--year</span>
+        <span id="years"></span>
+      </div>
+      <div id="violin"></div>
+    </div>
+  </section>
+
+  <footer class="dim">$ exit</footer>
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
